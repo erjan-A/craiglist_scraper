@@ -1,0 +1,50 @@
+<div class="container">
+
+  <%= render 'filter' %>
+
+  <% if @posts.empty? %>
+    <hr>
+    <h3>No results found</h3>
+  <% else %>
+    <table class="table table-hover table-condensed">
+      <thead>
+      <tr>
+        <th class="center"></th>
+        <th class="center" width="45%">Heading</th>
+        <th class="center">Price</th>
+        <th class="center">Beds</th>
+        <th class="center">Baths</th>
+        <th class="center">Neighborhood</th>
+        <th class="center">Last updated</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td width="13%" heihgt="120px">
+          <%= link_to post_path(post) do %>
+            <% if post.images.empty? %>
+              <%= image_tag "https://www.theroomlink.co.za/assets/img/no-property-image.png", class: "thumbnail" %>
+            <% else %>
+              <%= image_tag post.images.first.url, class: "thumbnail" %>
+            <% end %>
+          <% end %>
+        </td>
+        <td style="vertical-align: middle;"><%= link_to post.heading, post %></td>
+        <td style="vertical-align: middle;" class="center"><%= number_to_currency(post.price, precision: 0) %></td>
+        <td style="vertical-align: middle;" class="center"><%= post.bedrooms %></td>
+        <td style="vertical-align: middle;" class="center"><%= post.bathroom %></td>
+        <td style="vertical-align: middle;" class="center"><%= post.neighborhood %></td>
+        <td style="vertical-align: middle;" class="center"><%= "#{time_ago_in_words(Time.at(post.timestamp.to_i))} ago" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+   </table>
+  <% end %>
+
+  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+
+</div>
+
+

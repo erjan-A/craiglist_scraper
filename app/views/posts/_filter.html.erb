@@ -1,0 +1,43 @@
+<div class="filter">
+    <%= form_tag posts_path, method: :get, class: "form-inline" do %>
+
+      <div class="row">
+        <div class="col-md-4"><%= label_tag "Price" %></div>
+        <div class="col-md-2"><%= label_tag :bedrooms %></div>
+        <div class="col-md-2"><%= label_tag :bathroom %></div>
+        <div class="col-md-4"><%= label_tag :neighborhood %></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <%= text_field_tag :min_price, params[:min_price], placeholder: "minimum", class: "form-control input-sm" %>
+          <%= text_field_tag :max_price, params[:max_price], placeholder: "maximum", class: "form-control input-sm" %>
+        </div>
+        <div class="col-md-2"><%= text_field_tag :bedrooms, params[:bedrooms], placeholder: "# of bedrooms", class: "form-control input-sm" %></div>
+        <div class="col-md-2"><%= text_field_tag :bathroom, params[:bathroom], placeholder: "# of bathrooms", class: "form-control input-sm" %></div>
+        <div class="col-md-4"><%= select_tag(:neighborhood, options_from_collection_for_select(Location.all, :name, :name, params[:neighborhood]), {include_blank: true, class: "form-control input-sm"}) %></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <%= label_tag "Sqaure Footage" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <%= text_field_tag :min_sqft, params[:sqft], placeholder: "minimum", class: "form-control input-sm" %>
+          <%= text_field_tag :max_sqft, params[:max_sqft], placeholder: "maximum", class: "form-control input-sm" %>
+        </div>
+        <div class="col-md-2">
+          <%= label_tag :street_parking %>
+          <%= check_box_tag :street_parking, params[:street_parking] %>
+        </div>
+        <div class="col-md-2 col-md-offset-2">
+          <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+        </div>
+      </div>
+
+
+    <% end %>
+  </div>

@@ -1,0 +1,78 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background-color: #EDEFED;
+}
+
+.center {text-align: center;}
+
+.jumbotron {
+  background-image: url("http://hdw.datawallpaper.com/architecture/city-apartment-design-305018.jpg");
+  height: 800px;
+  margin: 0;
+  background-position: center;
+  h1 {
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 2px 3px #555;
+  }
+  h2 {
+    color: #fff;
+    text-shadow: 0 2px 3px #555;
+    margin-bottom: 80px;
+  }
+
+  .container {
+    padding: 80px 0;
+  }
+}
+
+.filter {
+  background-color: rgba(215,226,241,0.9);
+  padding: 20px 30px 10px 30px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.table tbody th:hover {background-color: #d2d7d2;}
+
+tbody {
+  .thumbnail {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.basic-info, .description {
+  background-color: #d7e2f1;
+  border: 2px solid #bacde6;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 30px 0;
+}
+
+#post-images {
+  border-right: 2px dotted #e3e3e3;
+  padding: 20px;
+  .thumbnail {
+    min-width: 100%;
+  }
+}
+
+.header {
+  border-bottom: 2px dotted #e3e3e3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
